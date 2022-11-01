@@ -12,6 +12,7 @@ display said ranking on a plot
 
 from pytrends.request import TrendReq
 from datetime import datetime
+import plotly.express as p
 
 #Reads the terms from a text file
 f = open("terms.txt", "r")
@@ -40,7 +41,9 @@ data = pytrend.get_historical_interest(term_array,
                                        hour_end=23,
 
                                        sleep=60)  # Delay added for rate limit
-print(data) 
+
+figure = p.line(data, x=['youtube'], y=['machine learning'], title='Keyword Web Search Interest Over Time')
+figure.show()
 
 #Returns the data and does stuff with it
 #print(data)
