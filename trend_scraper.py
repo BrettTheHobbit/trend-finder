@@ -6,8 +6,7 @@ Help from:
 https://hackernoon.com/how-to-use-google-trends-api-with-python
 
 TODO:
-plot or rank the data in some manner
-display said ranking on a plot
+edit the ranking so that the graph makes use of multiple dimensions
 """
 
 from pytrends.request import TrendReq
@@ -42,7 +41,7 @@ data = pytrend.get_historical_interest(term_array,
 
                                        sleep=60)  # Delay added for rate limit
 
-figure = p.line(data, x=['youtube'], y=['machine learning'], title='Keyword Web Search Interest Over Time')
+figure = p.line(data, x=["youtube"], y='isPartial', title='Keyword Web Search Interest Over Time')#Will show the range of the data
 figure.show()
 
 #Returns the data and does stuff with it
